@@ -14,21 +14,21 @@ function Navbar() {
   return (
       <div className="navbar">
           <div className="leftSide" id={openLinks ? "open" : "close"} >
-              <img src={logo} alt="logo"/>
+              <Link to="/"><img src={logo} alt="logo"/></Link>
               <div className="hiddenLinks">
                 <Link to="/">Home</Link>
-                <Link to="/">Menu</Link>
-                <Link to="/">Sobre nosotros</Link>
-                <Link to="/">Contacto</Link>
+                <Link to="/menu">Menu</Link>
+                <Link to="/about">Nosotros</Link>
+                <Link to="/contact">Contacto</Link>
              
               </div>
 
           </div>
           <div className="rightSide">
             <Link to="/">Home</Link>
-            <Link to="/">Menu</Link>
-            <Link to="/">Sobre nosotros</Link>
-            <Link to="/">Contacto</Link>
+            <Link to="/menu">Menu</Link>
+            <Link to="/about">Nosotros</Link>
+            <Link to="/contact">Contacto</Link>
             <button onClick={toggleNavbar}>
                     <MenuIcon />
                 </button>

@@ -10,7 +10,7 @@ function home() {
             <h1> Indian Corner </h1>
             <p>Comida india en tu hogar</p>
             
-            <Link to="/pedir">
+            <Link to="/menu">
                 <button>Pedir Ahora</button>
             </Link>
         </div>
