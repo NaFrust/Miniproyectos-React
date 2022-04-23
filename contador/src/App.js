@@ -10,11 +10,11 @@ function App() {
 
   const hacerClic = () =>{
     setNumeroClics(numeroClics + 1); 
-  }
+  };
 
   const reiniciarContador = () => {
     setNumeroClics(0);
-  }
+  };
 
 
 
