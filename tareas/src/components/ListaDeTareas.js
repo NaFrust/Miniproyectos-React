@@ -13,12 +13,12 @@ function ListaDeTareas() {
       const tareasActualizadas = [tarea, ...tareas];
       SetTareas(tareasActualizadas);
     }
-  }
+  };
 
   const eliminarTarea = id =>{
     const tareasActualizadas = tareas.filter(tarea => tarea.id !== id);
     SetTareas(tareasActualizadas);
-  }
+  };
 
   const completarTarea = id =>{
     const tareasActualizadas = tareas.map(tarea =>{
@@ -28,14 +28,13 @@ function ListaDeTareas() {
       return tarea
     });
     SetTareas(tareasActualizadas);
-  }
+  };
   
   return (
     <>
       <TareaFormulario onSubmit={agregarTarea}/>
       <div className='tareas-lista-contenedor'>
-        {
-        tareas.map((tarea)=>
+        {tareas.map((tarea)=>
           <Tarea
           key={tarea.id}
           id={tarea.id} 
@@ -44,9 +43,7 @@ function ListaDeTareas() {
           eliminarTarea={eliminarTarea}
           completarTarea={completarTarea}
           />
-
-        )
-        }
+        )}
       </div>
     </>
   )
