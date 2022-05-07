@@ -1,8 +1,12 @@
 import React, {useState} from 'react'
 import Error from './Error';
+import shortid from 'shortid';
 
-function Formulario() {
-  const [nombreGasto, setNombreGasto] = useState('');
+import PropTypes from 'prop-types';
+
+
+function Formulario({ setGasto,setCrearGasto }) {
+  const [nombre, setNombreGasto] = useState('');
   const [cantidad, setCantidad] = useState(0);
   const [error,setError ] = useState(false);
 
@@ -11,13 +15,23 @@ function Formulario() {
   const agregarGasto = e =>{
     e.preventDefault();
     // validad
-    if(cantidad <1 || isNaN(cantidad) || nombreGasto.trim() === '' ){
+    if(cantidad <1 || isNaN(cantidad) || nombre.trim() === '' ){
       setError(true);
       return;
     }
+    setError(false);
     // construirlo
+    const gasto = {
+      nombre,
+      cantidad,
+      id:   shortid.generate()
+    }
     // pasarlo al parent
+    setGasto(gasto);
+    setCrearGasto(true);
     // resetear el form
+    setNombreGasto('');
+    setCantidad(0);
   }
   return (
     <form
@@ -31,7 +45,7 @@ function Formulario() {
           type='text'
           className='u-full-width'
           placeholder='Ej. Comida'
-          value={nombreGasto}
+          value={nombre}
           onChange={ e => setNombreGasto(e.target.value)}
         />
       </div>
@@ -53,6 +67,11 @@ function Formulario() {
 
     </form>
   )
+}
+
+Formulario.propTypes = {
+  setGasto: PropTypes.func.isRequired,
+  setCrearGasto: PropTypes.func.isRequired
 }
 
 export default Formulario
